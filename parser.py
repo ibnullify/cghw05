@@ -91,17 +91,14 @@ def parse_file( fname, edges, transform, screen, color ):
             
         #NEWLY ADDED
         elif line == 'circle':
-            args = lines[c+1].strip().split(' ')
             #pass circle floats and a small step
             add_circle( edges, float(args[0]), float(args[1]), float(args[2]), float(args[3]), .00001 )
             
         elif line == 'hermite':
-            args = lines[c+1].strip().split(' ')
             #pass the hermite floats and a small step, type = 0
             add_curve( edges, float(args[0]), float(args[1]), float(args[2]), float(args[3]), float(args[4]), float(args[5]), float(args[6]), float(args[7]), .00001, 0 )
 
         elif line == 'bezier':
-            args = lines[c+1].strip().split(' ')
             #pass the bezier curve floats and a small step, type = 1
             add_curve( edges, float(args[0]), float(args[1]), float(args[2]), float(args[3]), float(args[4]), float(args[5]), float(args[6]), float(args[7]), .00001, 1 )
             

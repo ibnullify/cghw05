@@ -20,12 +20,8 @@ def add_curve( points, x0, y0, x1, y1, x2, y2, x3, y3, step, curve_type ):
     initx = x0
     inity = y0
     t = 0.0
-    if curve_type == 0: #hermite curve
-        xcoefs = generate_curve_coefs(x0,x1,x2,x3,0)
-        ycoefs = generate_curve_coefs(y0,y1,y2,y3,0)
-    else: #bezier curve
-        xcoefs = generate_curve_coefs(x0,x1,x2,x3,1)
-        ycoefs = generate_curve_coefs(y0,y1,y2,y3,1)
+    xcoefs = generate_curve_coefs(x0, x1, x2, x3, curve_type)
+    ycoefs = generate_curve_coefs(y0, y1, y2, y3, curve_type)
     while (t < 1.0 + step):
         #parametrize and solve for x and y
         x = xcoefs[0][0]*t*t*t + xcoefs[0][1]*t*t + xcoefs[0][2]*t + xcoefs[0][3]
